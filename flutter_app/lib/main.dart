@@ -1,7 +1,57 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  double bmi = 27.1;
+
+  if(bmi > 30) {
+    print("초고도 비만");
+  } else if(bmi > 25) {
+    print("비만");
+  } else {
+    print("정상입니다.");
+  }
+
+  for(int i = 0; i < 10; i++) {
+    print(i);
+  }
+
+  List<String> students = ["영수", "지영", "찬형", "지민"];
+  for(var name in students) {
+    print(name);
+  }
+
+  int i = 0;
+  while(i < 10) {
+    print(i);
+    i++;
+  }
+
+  print("5단 출력");
+  for(int i = 1; i < 10; i++) {
+    print("5 * $i = ${5 * i}");
+  }
+
+  i = 0;
+  print("5단 출력");
+  while(i < 10) {
+    print("5 * $i = ${5 * i}");
+    i++;
+  }
+
+  print(sum(5, 7));
+}
+
+int sum (int x, int y) {
+  return x + y;
+}
+
+class Student {
+  int? number;
+  String? name;
+
+  void printStudents() {
+    print("번호 $number 이름: $name");
+  }
 }
 
 class MyApp extends StatelessWidget {
