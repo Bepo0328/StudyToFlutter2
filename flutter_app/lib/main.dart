@@ -44,22 +44,27 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('테스트'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'My First App',
-            ),
-            const Icon(Icons.add),
+        child: GridView.count(
+          crossAxisCount: 2,
+          childAspectRatio: 1,
+          children: [
             Container(
-              child: const Text('컨테이너'),
-              color: Colors.redAccent,
+              child: const Text('이름'),
+              margin: const EdgeInsets.all(16.0),
+              color: Colors.blue,
             ),
-            TextButton(
-              onPressed: () {
-                print('텍스트 버튼 눌림');
+            Container(
+              child: const Text('이름'),
+              padding: const EdgeInsets.all(16.0),
+              color: Colors.red,
+            ),
+            const Text('이름'),
+            ListTile(
+              title: const Text('이름'),
+              trailing: const Text('전윤현'),
+              onTap: () {
+                print('전윤현');
               },
-              child: const Text('텍스트 버튼!'),
             ),
           ],
         ),
