@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _idx = 0;
+  Color _color = Colors.blue;
 
   void _incrementCounter() {
     setState(() {
@@ -38,20 +39,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _color = Colors.green;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('테스트'),
+        title: Text(widget.title),
       ),
       body: Center(
         child: GridView.count(
           crossAxisCount: 2,
           childAspectRatio: 1,
           children: [
-            Container(
-              child: const Text('이름'),
-              margin: const EdgeInsets.all(16.0),
-              color: Colors.blue,
+            InkWell(
+              child: Container(
+                child: const Text('이름'),
+                margin: const EdgeInsets.all(16.0),
+                color: _color,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             Container(
               child: const Text('이름'),
@@ -71,7 +83,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('FAB 눌림');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const MyHomePage(title: '새로운 페이지!');
+              },
+            ),
+          );
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
